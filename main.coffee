@@ -2,7 +2,7 @@
 fs = require("fs")
 
 irc = require("irc")
-express = {createServer} = require "express"
+express = require "express"
 
 settings = JSON.parse fs.readFileSync "config.json"
 
@@ -10,11 +10,10 @@ client = new irc.Client settings.server, settings.nick,
   channels: settings.channels
 
 
-client.on "message", (from, to, message) ->
-  console.log from + " => " + to + ": " + message
+client.on "message", (nick, channel, message) ->
+  console.log "#{ nick } => #{ channel }: #{ message }"
 
-
-app = createServer express.bodyParser()
+app = express.createServer express.bodyParser()
 
 
 app.get "/", (req, res) ->
@@ -29,5 +28,5 @@ app.post "/#{ settings.path }", (req, res) ->
 
 app.listen settings.listenPort
 
-console.log "Listening post request on
+console.log "Listening post requests on
   0.0.0.0:#{ settings.listenPort }:/#{ settings.path }"

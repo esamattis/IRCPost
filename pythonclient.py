@@ -14,7 +14,7 @@ class IRCPost(object):
         self.channel = channel
 
     def say(self, msg):
-        http = httplib.HTTPConnection(self.host + ":" + str(self.port))
+        http = httplib.HTTPConnection(self.host, self.port, 1)
         params = urllib.urlencode({'channel': self.channel, "msg": msg})
         http.request("POST", "/" + self.path, params, IRCPost.headers)
 
