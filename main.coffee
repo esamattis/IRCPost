@@ -6,9 +6,8 @@ express = {createServer} = require "express"
 
 settings = JSON.parse fs.readFileSync "config.json"
 
-client = new irc.Client settings.server, settings.nick, 
-  channels: process.env.IRC_CHANNELS.split ","
-
+client = new irc.Client settings.server, settings.nick,
+  channels: settings.channels
 
 
 client.on "message", (from, to, message) ->
