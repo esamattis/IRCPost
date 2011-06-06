@@ -1,0 +1,22 @@
+{
+  "name": "IRCPost",
+  "description": "",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/epeli/IRCPost.git"
+  },
+  "author": "Esa-Matti Suuronen <esa-matti@suuronen.org>",
+  "main": "./main.coffee",
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "express": "",
+    "coffee-script": "",
+    "irc": ""
+  },
+  "devDependencies": {
+    "supervisor": ""
+  }
+}

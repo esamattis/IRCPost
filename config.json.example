@@ -1,0 +1,8 @@
+{
+    "nick": "IRCPost"
+    , "channels": ["#channel"]
+    , "server": "irc.server.fi"
+    , "listenPort": 8080
+    , "path": "irc"
+
+}
